@@ -7,7 +7,7 @@ Convert .env to Kubernetes Secret Resource
 # Usage
 
 ```shell
-$ go get -u github.com/mrtc0/cmd/dotenv-to-secret
+$ go get -u github.com/mrtc0/dotenv-to-secret/cmd/dotenv-to-secret
 $ cat .env
 USERNAME=mrtc0
 PASSWORD=password
