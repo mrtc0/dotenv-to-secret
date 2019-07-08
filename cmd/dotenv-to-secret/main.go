@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/base64"
 	"fmt"
 	"log"
 
@@ -21,10 +22,16 @@ type Metadata struct {
 }
 
 func main() {
-	var env map[string]string
-	env, _ = godotenv.Read()
+	var dotenv map[string]string
+	env := map[string]string{}
+
+	dotenv, _ = godotenv.Read()
 
 	metadata := Metadata{Name: "env"}
+
+	for k, v := range dotenv {
+		env[k] = base64.StdEncoding.EncodeToString([]byte(v))
+	}
 	y := Secret{ApiVersion: "v1", Kind: "Secret", Metadata: metadata, Type: "Opaque", Data: env}
 	d, err := yaml.Marshal(&y)
 	if err != nil {

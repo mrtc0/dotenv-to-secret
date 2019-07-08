@@ -19,6 +19,6 @@ metadata:
   name: env
 type: Opaque
 data:
-  PASSWORD: password
-  USERNAME: mrtc0
+  PASSWORD: cGFzc3dvcmQ=
+  USERNAME: bXJ0YzA=
 ```
